@@ -97,9 +97,8 @@ void BuzzerHandler::init()
  * until a call to endTone (or certain other functions) is called.
  *
  * Note:
- *
- *  The 'ledc' phrase used in the function calls is due to ESP32 referring to all PWM outputs as
- *  LED controllers...even though they have many other uses.
+ *         The 'ledc' phrase used in the function calls is due to ESP32 referring to all PWM outputs 
+ *         as LED controllers even though they have many other uses.
  *
  * @param pFrequencyHz      the frequency in Hertz of the tone to be emitted
  *
@@ -141,7 +140,7 @@ void BuzzerHandler::init()
  *
  * Activates the buzzer to emit a tone at the specified frequency for the specified time duration.
  *
-* Calling certain other functions in this class before (mode == MODE_IDLE) may result in unexpected
+ * Calling certain other functions in this class before (mode == MODE_IDLE) may result in unexpected
  * behavior.
  *
  * @param pFrequencyHz      the frequency of the tone in Hertz to be emitted
@@ -173,8 +172,6 @@ void BuzzerHandler::init()
  *
  * Calling certain other functions in this class before (mode == MODE_IDLE) may result in unexpected
  * behavior.
- *
- * wip mks:
  *
  * This function needs to be changed to accept a variable number of parameters to allow for
  * a variable length of the sequence.
@@ -209,48 +206,6 @@ void BuzzerHandler::init()
     mode = MODE_HANDLE_SEQUENCE;
 
  }// end of BuzzerHandler::startPulseSequence
- //--------------------------------------------------------------------------------------------------
-
-//--------------------------------------------------------------------------------------------------
-// BuzzerHandler::process
-//
-/**
- *
- * This function should be called by the Arduino 'loop' function which is in the .ino file for
- * Arduino IDE projects and in the main.cpp file for VSCode projects.
- *
- * This function handles various ongoing processes such as a pulse or pulse sequence by turning
- * off or changing tone emissions at predetermined times.
- *
- *
- */
-
-void BuzzerHandler::process()
-{
-
-    switch(mode){
-
-        case MODE_IDLE:
-
-            return;
-
-            break;
-
-        case MODE_HANDLE_PULSE:
-
-            handlePulse();
-
-            break;
-
-        case MODE_HANDLE_SEQUENCE:
-
-            handlePulseSequence();
-
-            break;
-
-    }
-
-}// end of BuzzerHandler::process
 //--------------------------------------------------------------------------------------------------
 
 //--------------------------------------------------------------------------------------------------
@@ -352,6 +307,48 @@ void BuzzerHandler::process()
     }
 
  }// end of BuzzerHandler::handlePulseSequence
+//--------------------------------------------------------------------------------------------------
+
+//--------------------------------------------------------------------------------------------------
+// BuzzerHandler::process
+//
+/**
+ *
+ * This function should be called by the Arduino 'loop' function which is in the .ino file for
+ * Arduino IDE projects and in the main.cpp file for VSCode projects.
+ *
+ * This function handles various ongoing processes such as a pulse or pulse sequence by turning
+ * off or changing tone emissions at predetermined times.
+ *
+ *
+ */
+
+void BuzzerHandler::process()
+{
+
+    switch(mode){
+
+        case MODE_IDLE:
+
+            return;
+
+            break;
+
+        case MODE_HANDLE_PULSE:
+
+            handlePulse();
+
+            break;
+
+        case MODE_HANDLE_SEQUENCE:
+
+            handlePulseSequence();
+
+            break;
+
+    }
+
+}// end of BuzzerHandler::process
 //--------------------------------------------------------------------------------------------------
 
 //--------------------------------------------------------------------------------------------------

@@ -70,8 +70,6 @@ DelayHandler::DelayHandler(const unsigned long pDelayTimeMS, const String pObjec
  *
  * Initializes the object...call immediately after instantiation.
  *
- *
- *
  */
 
 void DelayHandler::init()
@@ -87,7 +85,8 @@ void DelayHandler::init()
 //
 /**
  *
- *
+ * Starts or resets a delay timer by recording the current time and setting the desired 
+ * delay duration.
  *
  */
 
@@ -106,7 +105,7 @@ void DelayHandler::init()
 //
 /**
  *
- *
+ * Starts or resets the delay timer without specifying a new duration.
  *
  */
 
@@ -116,14 +115,15 @@ void DelayHandler::init()
     startTimeMS = millis();
    
  }// end of DelayHandler::start
- //--------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
 
 //--------------------------------------------------------------------------------------------------
 // DelayHandler::isRunning
 //
 /**
  *
- *
+ * Checks whether the delay timer is still active (i.e. if the specified time has not yet elapsed 
+ * since it was started).
  *
  */
 
@@ -138,7 +138,7 @@ void DelayHandler::init()
     }
 
  }// end of DelayHandler::isRunning
- //--------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
 
 //--------------------------------------------------------------------------------------------------
 // DelayHandler::process
@@ -152,8 +152,6 @@ void DelayHandler::init()
 
 void DelayHandler::process()
 {
-
-
 
 }// end of DelayHandler::process
 //--------------------------------------------------------------------------------------------------
